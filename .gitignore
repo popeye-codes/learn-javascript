@@ -1,0 +1,45 @@
+# ==========================
+# Operating System Files
+# ==========================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# ==========================
+# Node.js
+# ==========================
+
+# Installed packages
+node_modules/
+
+# npm/yarn debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Log files
+*.log
+
+# ==========================
+# Environment Variables
+# ==========================
+
+.env
+.env.local
+
+# ==========================
+# VS Code (Optional)
+# ==========================
+
+# Uncomment if you don't want to share your VS Code settings
+# .vscode/
+
+# ==========================
+# JetBrains IDEs (Optional)
+# ==========================
+
+# Uncomment if you use IntelliJ IDEA or WebStorm
+# .idea/
