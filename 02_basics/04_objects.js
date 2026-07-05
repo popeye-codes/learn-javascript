@@ -116,4 +116,4 @@ console.log(tinderUser.hasOwnProperty("isLoggedIn"));
 
 // obj.hasOwnProperty(key)
 // - Returns true if the property exists directly on the object.
-// - Returns false otherwise.
+// - Retur`ns false otherwise.

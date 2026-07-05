@@ -1,44 +1,30 @@
-const marvel_heros =["Thor", "Itron-Man", "Spider-Man"];
-const dc_heros = ["Super-man", "Flash", "Bat-Man"];
+const marvel_heros = ["Thor", "Iron-Man", "Spider-Man"];
+const dc_heros = ["Super-Man", "Flash", "Bat-Man"];
 
-// .push modifie into original array
-//marvel_heros.push(dc_heros); // will merge both array => takes another array as element 
-
-
-
-//console.log(marvel_heros); // // outpu after .push on marvel_heros -> [
-//   'Thor',
-//   'Itron-Man',
-//   'Spider-Man',
-//   [ 'Super-man', 'Flash', 'Bat-Man' ]
-// ] 
-
+// push modifies original array
+// marvel_heros.push(dc_heros); 
+// console.log(marvel_heros);
 // console.log(marvel_heros[3][1]);
 
-// concat return new array not modifed in original array
-// let afterConcat = marvel_heros.concat(dc_heros); // concat merge both array elem togrther in a array
-// console.log(afterConcat);
+// concat returns new array (does NOT modify original)
+const all_heros_concat = marvel_heros.concat(dc_heros);
+// console.log(all_heros_concat);
 
-// better to use spread - operator instead of Concat()
+// spread operator (modern and best way)
+const all_new_heroes = [...marvel_heros, ...dc_heros];
+// console.log(all_new_heroes);
 
-const all_new_heroes = [...marvel_heros, ...dc_heros]; //... means it being spread => its no more  a Array , all elem become individual
+// flatten nested arrays
+const another_array = [1, 2, 3, [4, 5, 6], 7, [6, 7, [4, 5]]];
 
-//console.log(all_new_heroes);
+const real_another_array = another_array.flat(Infinity);
+console.log(real_another_array);
 
-const another_array = [1, 2, 3, [4, 5, 6], 7, [6,7, [4, 5]]];
-
-const real_another_array = another_array.flat(Infinity); // all value spread out now matter how much nested array are there
-console.log(real_another_array); // output: [
-//   1, 2, 3, 4, 5,
-//   6, 7, 6, 7, 4,
-//   5
-// ]
-
-
-
-console.log(Array.isArray("shivam")); // check is this a array?
-console.log(Array.from("shivam")); // will convert into array -> [ 's', 'h', 'i', 'v', 'a', 'm' ]
-console.log(Array.from({name: "shivam"})); //need to tell need to make array from "key" or "value" ---> intresting
+// Array utility methods
+console.log(Array.isArray("shivam")); 
+console.log(Array.from("shivam")); 
+console.log(Array.from({ name: "shivam" })); 
+// object needs key/value instruction, otherwise returns []
 
 let score1 = 100;
 let score2 = 200;

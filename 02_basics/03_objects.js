@@ -64,6 +64,7 @@ jsUser.greeting2 = function () {
     console.log(`Hello JS User, ${this.name}`);
 };
 
+// function - call
 jsUser.greeting();
 jsUser.greeting2();
 
