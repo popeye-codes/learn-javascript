@@ -29,10 +29,15 @@ form.addEventListener('submit', function(e) {
 
     // to display its underweight/overweight/normal
     // as BMI - result store in bmi
-    if(results < 18.6) {
-        results.innerHTML = `<span>${bmi} is Under-Weight</span>`;  // replacing whole prvious innerHTML in 'result' , to make it whole in a line use:--> results.innerHTML += `<span>${bmi} is Under-Weight</span>`; 
+
+
+    // replacing whole previous innerHTML in 'result',
+    // to make it whole in a line use:
+    // results.innerHTML += `<span>${bmi} is Under-Weight</span>`;
+    if(bmi < 18.6) {
+        results.innerHTML = `<span>${bmi} is Under-Weight</span>`;  
     } 
-    else if(results > 24.9) {
+    else if(bmi > 24.9) {
         results.innerHTML = `<span>${bmi} is Over-Weight</span>`;
     }
     else{
@@ -41,3 +46,12 @@ form.addEventListener('submit', function(e) {
     }
     
 });
+
+
+// If you want the program to actually display:
+// 22.90
+// 22.90 is Normal
+
+// then the code itself must use:
+
+// results.innerHTML += ...
