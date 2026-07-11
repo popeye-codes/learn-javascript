@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background: #212121;
+        }
+
+        .about {
+            background: white;
+            color: #d33737;
+            border-radius: 12px;
+            border: 1px solid black;
+            padding: 10px;
+            display: flex;
+            text-align: center;
+        }
+
+        .profile {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="about">
+        <p>My name is shivam <span class="profile">Software Engineer</span></p>
+    </div>
+
+    // =========== js =================
+    <script>
+
+        const profession = document.querySelector(".profile");
+        console.log(profession);
+
+        //innerHTML += "..." → adds to the existing content (by reading, concatenating, and rewriting).
+        
+        profession.innerHTML += " at Google"; // its added to existing no need to append explicitly
+
+        console.log(profession);
+
+
+        const h1 = document.createElement("h1");
+        h1.innerHTML = `Welcome to my website`;
+        h1.style.background = "white";
+        h1.style.borderRadius = "10px";
+        console.log(h1);
+
+        // now append it in body
+        document.body.prepend(h1); // to display at top user 'prepend'
+
+        // another way:
+        // const h1 = document.createElement("h1");
+        // h1.innerText = "Welcome to my website";
+        // h1.style.backgroundColor = "white";
+
+        // document.body.prepend(h1);
+
+    </script>
+</body>
+
+</html>
