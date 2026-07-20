@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this & bind() in JavaScript</title>
+</head>
+
+<body>
+
+    <button>Button Clicked</button>
+
+</body>
+
+
+<script>
+
+    class React {
+
+        constructor() {
+
+            // Instance properties
+            this.library = "React";
+            this.server = "https://localhost:300";
+
+
+            /*
+                Problem:
+
+                Passing method directly:
+
+                button.addEventListener(
+                    "click",
+                    this.handleClick
+                )
+
+                Browser will call handleClick()
+                and 'this' will become the button object.
+
+                So:
+
+                this = button
+
+                Therefore:
+
+                this.server
+                becomes
+
+                button.server
+
+                But button has no server property.
+
+                Output:
+                undefined
+            */
+
+
+            /*
+                Solution:
+
+                bind(this)
+
+                bind fixes the value of 'this'.
+
+                Here constructor's this refers to current React object.
+
+                So:
+
+                this.handleClick.bind(this)
+
+                becomes:
+
+                handleClick.bind(React object)
+
+
+                Now even if button invokes the function,
+                this will always refer to React object.
+            */
+
+
+            document
+                .querySelector('button')
+                .addEventListener(
+                    'click',
+                    this.handleClick.bind(this)
+                );
+
+        }
+
+
+        handleClick() {
+
+            console.log("button clicked");
+
+
+            /*
+                Without bind():
+
+                this = button
+
+
+                With bind():
+
+                this = React object
+
+
+                Output:
+
+                React {
+                    library: "React",
+                    server: "https://localhost:300"
+                }
+            */
+
+
+            console.log(this);
+
+
+            console.log(this.server);
+            // https://localhost:300
+
+        }
+
+    }
+
+
+    // Creating React class instance
+
+    const app = new React();
+
+
+</script>
+
+</html>
