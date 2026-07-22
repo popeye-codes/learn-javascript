@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: wheat;">
+   <button class="orange">Orange</button>
+   <button class="green">Green</button>
+</body>
+
+<script>
+
+    // ========= Lexical - Scoping: =========
+
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer() {
+    //     let username = "xyz";
+
+    //     function inner() {
+    //         let secret = "my123";
+    //         console.log("inner: ", username);
+    //     }
+    //     function inner2() {
+    //         console.log("inner2: ", username);
+    //         // console.log(secret); // ❌ Error
+    //     }
+    //     inner();
+    //     inner2();
+    // }
+    // outer();
+
+    // console.log("Too outer :", username);
+
+    // conclusion:
+    // Lexical Scoping means a child scope can access variables
+    // from its parent scope where it was created.
+    // Scope is decided during code writing, not execution.
+    
+    
+    // ========= Clouser: ===========
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+           // Returning the function object.
+           // The function also keeps a hidden reference to its lexical environment.
+    // }
+
+    // const myFunc = makeFunc(); // equivqlent to { const myFun = display }
+    // // Internally, that function remembers makeFunc's lexical environment.
+    
+    // myFunc(); 
+    // => myFunc() equivalent to displayName().
+    // // uses the hidden lexical environment to find name 
+
+</script>
+
+<script>
+    // document.querySelector(".orange").onclick = function() {
+    //     document.body.style.backgroundColor = "orange";
+    // }
+    // document.querySelector(".green").onclick = function() {
+    //     document.body.style.backgroundColor = "green";
+    // }
+
+    function clickHandler(color) {
+        // document.body.style.backgroundColor = `${color}`;
+
+        return function() {
+            document.body.style.backgroundColor = `${color}`;
+        }
+    }
+
+    document.querySelector('.orange').onclick = clickHandler("orange");
+    document.querySelector('.green').onclick = clickHandler("green");
+</script>
+
+</html>
